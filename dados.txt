@@ -1,0 +1,5 @@
+Nome: Arthur 
+Idade: 17
+Sexo: M
+Formação: medio
+Habilidades: programação
