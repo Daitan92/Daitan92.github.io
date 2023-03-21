@@ -1,44 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Formulário</title>
-</head>
-<body>
+<?php
 
-	<h1>Formulário de Cadastro</h1>
+// Recebe os dados do formulário
+$nome = $_POST['nome'];
+$idade = $_POST['idade'];
+$sexo = $_POST['sexo'];
+$formacao = $_POST['formacao'];
+$habilidades = $_POST['habilidades'];
 
-	<form action="teste2.php" method="post">
-		<label for="nome">Nome:</label>
-		<input type="text" id="nome" name="nome"><br><br>
+// Cria uma string com os dados do formulário
+$dados = "Nome: $nome\nIdade: $idade\nSexo: $sexo\nFormação: $formacao\nHabilidades: $habilidades\n\n";
 
-		<label for="idade">Idade:</label>
-		<input type="number" id="idade" name="idade"><br><br>
+// Abre o arquivo de texto em modo de escrita
+$handle = fopen("dados.txt", "a");
 
-		<label for="sexo">Sexo:</label>
-		<input type="radio" id="sexo_m" name="sexo" value="M">
-		<label for="sexo_m">Masculino</label>
-		<input type="radio" id="sexo_f" name="sexo" value="F">
-		<label for="sexo_f">Feminino</label><br><br>
+// Escreve os dados no arquivo
+fwrite($handle, $dados);
 
-		<label for="formacao">Formação:</label>
-		<select id="formacao" name="formacao">
-			<option value="fundamental">Ensino Fundamental</option>
-			<option value="medio">Ensino Médio</option>
-			<option value="superior">Ensino Superior</option>
-			<option value="pos">Pós-Graduação</option>
-		</select><br><br>
+// Fecha o arquivo
+fclose($handle);
 
-		<label for="habilidades">Habilidades:</label><br>
-		<textarea id="habilidades" name="habilidades" rows="5" cols="40"></textarea><br><br>
+// Redireciona de volta para o formulário
+header("Location: teste.php");
 
-		<input type="submit" value="Enviar">
-	</form>
-
-</body>
-</html>
-
-
-
-
-
-      
+?>
