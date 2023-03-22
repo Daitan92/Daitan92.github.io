@@ -20,6 +20,6 @@ fwrite($handle, $dados);
 fclose($handle);
 
 // Redireciona de volta para o formulário
-header("Location: teste.php");
+header("Location: index.html");
 
 ?>
